@@ -1,0 +1,45 @@
+defaults:
+  - _self_
+  - override hydra/hydra_logging: none
+  - override hydra/job_logging: stdout
+
+
+camera:
+  resolution: [640, 480]
+  fps: 30
+  background_removed_color: 153
+  clipping_distance_in_meters: 2
+
+left_config_path: configs/teleop/ability_hand_left.yml
+right_config_path: configs/teleop/ability_hand_right.yml
+
+
+device: cpu
+
+num_envs: 1
+headless: false
+action_repeat: 1
+hz: 60.0
+action_dim: 34
+
+left_urdf: xarm7_ability/xarm7_ability_left_hand.urdf
+right_urdf: xarm7_ability/xarm7_ability_right_hand.urdf
+ee_name: base
+base: link_base
+spacing: 1.25
+
+left_arm_init: [0, -0.3199993, -0.05, 0.45, 3.1599, 0.78999954, -0.01, 0.42416182, 1.1724788, 0.42094582, 1.1690747, 0.58770615, 1.3455927, 0.48475993, 1.2366228, -0.02744374, 0.59406483]
+right_arm_init: [0, -0.3199993, -0.05, 0.45, 3.1599, 0.78999954, -0.01, 0.42416182, 1.1724788, 0.42094582, 1.1690747, 0.58770615, 1.3455927, 0.48475993, 1.2366228, -0.02744374, 0.59406483]
+
+left_joint_indices: [0, 1, 2, 3, 4, 5, 6]
+left_ee_indices: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+right_joint_indices: [17, 18, 19, 20, 21, 22, 23]
+right_ee_indices: [24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
+
+resolution: [640, 480]
+
+# Hydra
+hydra:
+  output_subdir: null
+  run:
+    dir: .
